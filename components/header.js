@@ -12,7 +12,7 @@ const Header = ({ hamburger }) => {
           </div>
         </div>
         <div className="flex flex-row items-center justify-end gap-[36px] text-sm text-primary-900 sm:flex">
-          <div className="flex flex-row items-start justify-start gap-[30px] lg:hidden">
+          <div className="flex flex-row items-start justify-start gap-[30px] lg:hidden ">
             <div className="relative leading-[22px]">HOME</div>
             <div className="relative leading-[22px]">ABOUT US</div>
             <div className="relative leading-[22px]">OUR AGENTS</div>
@@ -24,7 +24,7 @@ const Header = ({ hamburger }) => {
             <div className="relative leading-[22px]">CONTACT US</div>
             <div className="relative leading-[22px]">SEARCH</div>
           </div>
-          {!hamburger && (
+          {hamburger && (
             <button className="cursor-pointer [border:none] p-0 bg-[transparent] hidden flex-row items-center justify-center lg:flex">
               <img
                 className="relative w-6 h-6 overflow-hidden shrink-0 md:flex"

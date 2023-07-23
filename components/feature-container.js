@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FeatureContainer = () => {
   return (
     <div className="self-stretch bg-primary-50 flex flex-col py-[70px] px-0 items-center justify-center text-center text-21xl text-primary-800 font-body-large-400">
@@ -27,7 +29,7 @@ const FeatureContainer = () => {
                 <div className="relative text-base leading-[24px] text-lightslategray text-left flex items-end w-[268px]">
                   We do a free evaluation to be sure you want to start selling.
                 </div>
-                <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
+                <button className="cursor-pointer border-none p-0 bg-transparent relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
                   Read more
                 </button>
               </div>
@@ -47,7 +49,7 @@ const FeatureContainer = () => {
                 <div className="relative text-base leading-[24px] text-lightslategray text-left flex items-end w-[268px]">
                   We do a free evaluation to be sure you want to start selling.
                 </div>
-                <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
+                <button className="cursor-pointer border-none p-0 bg-transparent relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
                   Read more
                 </button>
               </div>
@@ -67,7 +69,7 @@ const FeatureContainer = () => {
                 <div className="relative text-base leading-[24px] text-lightslategray text-left flex items-end w-[268px]">
                   We do a free evaluation to be sure you want to start selling.
                 </div>
-                <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
+                <button className="cursor-pointer border-none p-0 bg-transparent relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
                   Read more
                 </button>
               </div>
@@ -76,7 +78,7 @@ const FeatureContainer = () => {
           <div className="rounded bg-gray-white shadow-[0px_24px_68px_rgba(59,_77,_129,_0.08)] w-[312px] flex flex-col py-[22px] px-5 box-border items-start justify-start min-w-[300px] max-w-[340px]">
             <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
               <img
-                className="relative w-[78px] h-[78px] overflow-hidden shrink-0"
+                className="self-stretch relative max-w-full overflow-hidden h-[78px] shrink-0"
                 alt=""
                 src="/icon2.svg"
               />
@@ -87,7 +89,7 @@ const FeatureContainer = () => {
                 <div className="relative text-base leading-[24px] text-lightslategray text-left flex items-end w-[268px]">
                   We do a free evaluation to be sure you want to start selling.
                 </div>
-                <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
+                <button className="cursor-pointer border-none p-0 bg-transparent relative text-base leading-[24px] font-body-large-400 text-primary-500 text-left inline-block">
                   Read more
                 </button>
               </div>
