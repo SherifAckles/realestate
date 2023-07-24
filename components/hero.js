@@ -1,38 +1,13 @@
 import { useCallback } from "react";
 import "antd/dist/antd.min.css";
-import { Menu, Dropdown, Button } from "antd";
-import {
-  DownOutlined,
-  ArrowLeftOutlined,
-  ArrowRightOutlined,
-  CalendarOutlined,
-  CheckOutlined,
-  ClockCircleOutlined,
-  CloseOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  ExclamationCircleOutlined,
-  HeartOutlined,
-  LeftOutlined,
-  LockOutlined,
-  MailOutlined,
-  PaperClipOutlined,
-  PhoneOutlined,
-  QuestionCircleOutlined,
-  ReloadOutlined,
-  RightOutlined,
-  SearchOutlined,
-  SendOutlined,
-  ShareAltOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 import { useRouter } from "next/router";
+import DropdownMenu, { cities, propertyType, priceRange } from './DropdownMenu';
 
 const Hero = () => {
   const router = useRouter();
 
   const onSearchCTAClick = useCallback(() => {
-    router.push("/properties-grid-view");
+    router.push("/properties");
   }, [router]);
 
   return (
@@ -62,99 +37,10 @@ const Hero = () => {
             </button>
           </div>
           <div className="self-stretch flex flex-row flex-wrap items-start justify-center">
-            <div className="flex-1 rounded-lg bg-gray-white flex flex-row py-8 px-[62px] box-border items-center justify-between max-w-[1400px] md:w-[300px] md:flex-col md:gap-[20px] md:items-start md:justify-start md:ml-[auto] md:mr-[auto]">
-              <div className="w-[137px] flex flex-col items-start justify-start gap-[16px] text-center">
-                <div className="relative leading-[24px] capitalize font-semibold">
-                  Locations
-                </div>
-                <Dropdown
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "New York" },
-                        { value: "Los Angeles" },
-                        { value: "Chicago" },
-                        { value: "Berlin" },
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) => e.preventDefault()}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    {`Select your city `}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
-              <div className="w-[177px] flex flex-col items-start justify-start gap-[16px]">
-                <div className="relative leading-[24px] capitalize font-semibold flex items-end w-[150px]">
-                  Property Type
-                </div>
-                <Dropdown
-                  className="self-stretch"
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "Studio apartments" },
-                        { value: "One-bedroom apartments" },
-                        { value: "Two-bedroom apartments" },
-                        { value: "Three-bedroom apartments" },
-                        { value: "Four or more bedroom apartments/houses" },
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) => e.preventDefault()}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    {`Select property type `}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
-              <div className="w-[155px] flex flex-col items-start justify-start gap-[16px]">
-                <div className="relative leading-[24px] capitalize font-semibold flex items-end w-[150px]">
-                  Rent Range
-                </div>
-                <Dropdown
-                  className="self-stretch"
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "$500-$2000" },
-                        { value: "$2500-$10000" },
-                        { value: "$10000+" },
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) => e.preventDefault()}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    {`Select rent range `}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
+            <div className="flex-1 rounded-lg bg-gray-white flex flex-row py-8 px-[60px] box-border items-center justify-between max-w-[1400px] md:w-[300px] md:flex-col md:gap-[20px] md:items-start md:justify-start md:ml-[auto] md:mr-[auto]">
+              <DropdownMenu items={cities} title="Locations" />
+              <DropdownMenu items={propertyType} title="Property" />
+              <DropdownMenu items={priceRange} title="Rent Range" />
               <button
                 className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded w-[102px] flex flex-row box-border items-center justify-center"
                 onClick={onSearchCTAClick}

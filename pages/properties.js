@@ -1,32 +1,55 @@
 import "antd/dist/antd.min.css";
 import { Pagination, Dropdown } from "antd";
-import { DownOutlined} from "@ant-design/icons";
- import { createClient } from "@supabase/supabase-js";
+import { DownOutlined } from "@ant-design/icons";
+import { createClient } from "@supabase/supabase-js";
 
 import Header from "../components/header";
 import PropertiesGridContainer from "../components/properties-grid-container";
 import Footer from "../components/footer";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const defaultOrder=[]
+const defaultOrder = [
+  {
+    key: '1',
+    label: (
+      <a onClick={e => e.preventDefault()}>
+        Popular Properties
+      </a>
+    )
+  },
+  {
+    key: '2',
+    label: (
+      <a onClick={e => e.preventDefault()}>
+        Latest Properties
+      </a>
+    )
+  },
+  {
+    key: '3',
+    label: (
+      <a onClick={e => e.preventDefault()}>
+        Recommended Properties
+      </a>
+    )
+  },
+]
 
-const PropertiesGridView = () => {
-  const[properties,setProperties]=useState([])
-  const client=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_KEY);
+const properties = () => {
 
-  useEffect(()=>{
-const fetchProperties=async()=>{
-  const result=await client.from('properties').select('*')
-  setProperties(result.data)
-}
-fetchProperties()
-  },[])
-
- 
+  const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_KEY);
+  const [properties, setProperties] = useState([])
+  useEffect(() => {
+    const fetchProperties = async () => {
+      const result = await client.from('properties').select('*')
+      setProperties(result.data)
+    }
+    fetchProperties()
+  }, [])
 
   return (
     <div className=" bg-gray-white w-full flex flex-col items-start justify-start text-center text-33xl text-gray-white font-body-regular-400">
-      <Header hamburger={false} />
+      <Header hamburger={true} />
       <div className="self-stretch h-60 flex flex-col items-center justify-center bg-[url(/category@3x.png)] bg-cover bg-no-repeat bg-top">
         <div className="flex flex-col items-center justify-start gap-[12px]">
           <div className=" leading-[72px] font-semibold">
@@ -47,26 +70,26 @@ fetchProperties()
             </div>
             <div className=" leading-[24px]">Sort by:</div>
             <Dropdown
-              menu={{defaultOrder}}
-               
+              menu={{ items: defaultOrder }}
               placement="bottomLeft"
               trigger={["hover"]}
             >
-              <a onClick={(e) => e.preventDefault()}>
+              <div onClick={(e) => e.preventDefault()}>
                 {`Default Order `}
                 <DownOutlined />
-              </a>
+              </div>
             </Dropdown>
+
           </div>
         </div>
-        <PropertiesGridContainer 
-        properties={properties}
+        <PropertiesGridContainer
+          properties={properties}
         />
         <div className="flex flex-row items-end justify-center gap-[8px] text-center text-primary-500">
-        <Pagination 
-        defaultCurrent={1}
-        total={50}
-        />
+          <Pagination
+            defaultCurrent={1}
+            total={50}
+          />
         </div>
       </div>
       <Footer />
@@ -74,4 +97,4 @@ fetchProperties()
   );
 };
 
-export default PropertiesGridView;
+export default properties;
