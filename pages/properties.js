@@ -2,11 +2,11 @@ import "antd/dist/antd.min.css";
 import { Pagination, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { createClient } from "@supabase/supabase-js";
-
 import Header from "../components/header";
 import PropertiesGridContainer from "../components/properties-grid-container";
 import Footer from "../components/footer";
 import { useState, useEffect } from "react";
+
 
 const defaultOrder = [
   {
@@ -35,17 +35,25 @@ const defaultOrder = [
   },
 ]
 
-const properties = () => {
-
+const Properties = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_KEY);
-  const [properties, setProperties] = useState([])
+  const [propertyData, setPropertyData] = useState([]);
+
   useEffect(() => {
     const fetchProperties = async () => {
-      const result = await client.from('properties').select('*')
-      setProperties(result.data)
-    }
-    fetchProperties()
-  }, [])
+      const pageSize = 4; // Number of properties per page
+      const offset = (currentPage - 1) * pageSize;
+      const result = await client.from('properties').select('*').range(offset, offset + pageSize - 1);
+      setPropertyData(result.data);
+    };
+    fetchProperties();
+  }, [currentPage]);
+
+  // Replace this with the actual total number of properties you have
+  const totalProperties = 50;
+  const pageSize = 4;
+  const totalPages = Math.ceil(totalProperties / pageSize);
 
   return (
     <div className=" bg-gray-white w-full flex flex-col items-start justify-start text-center text-33xl text-gray-white font-body-regular-400">
@@ -79,16 +87,14 @@ const properties = () => {
                 <DownOutlined />
               </div>
             </Dropdown>
-
           </div>
         </div>
-        <PropertiesGridContainer
-          properties={properties}
-        />
+        <PropertiesGridContainer properties={propertyData} />
         <div className="flex flex-row items-end justify-center gap-[8px] text-center text-primary-500">
           <Pagination
-            defaultCurrent={1}
-            total={50}
+            defaultCurrent={currentPage}
+            total={totalPages}
+            onChange={(page) => setCurrentPage(page)}
           />
         </div>
       </div>
@@ -97,4 +103,4 @@ const properties = () => {
   );
 };
 
-export default properties;
+export default Properties;
