@@ -2,10 +2,10 @@ import "antd/dist/antd.min.css";
 import { Pagination, Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { createClient } from "@supabase/supabase-js";
+import { useState, useEffect } from "react";
 import Header from "../components/header";
 import PropertiesGridContainer from "../components/properties-grid-container";
 import Footer from "../components/footer";
-import { useState, useEffect } from "react";
 
 const defaultOrder = [
   {
@@ -23,11 +23,12 @@ const defaultOrder = [
 ];
 
 const Properties = () => {
+  const pageSize = 10;
+  const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_KEY);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedOrderType, setSelectedOrderType] = useState("");
-  const [totalProperties, setTotalProperties] = useState(0);
+  const [totalProperties, setTotalProperties] = useState([]);
   const [propertyData, setPropertyData] = useState([]);
-  const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_KEY);
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -58,15 +59,9 @@ const Properties = () => {
   }, [currentPage, selectedOrderType]);
 
   const handleMenuClick = (e) => {
-    if (e.key === "all") {
-      setSelectedOrderType(""); // Set to an empty string to view all properties
-    } else {
-      setSelectedOrderType(e.key); // Set the selected property type
-    }
+    setSelectedOrderType(e.key === "all" ? "" : e.key);
     setCurrentPage(1);
   };
-
-  const pageSize = 4;
 
   return (
     <div className="bg-gray-white w-full flex flex-col items-start justify-start text-center text-33xl text-gray-white font-body-regular-400">
@@ -92,7 +87,7 @@ const Properties = () => {
               overlay={
                 <Menu onClick={handleMenuClick} selectedKeys={[selectedOrderType || "all"]}>
                   {/* Added an additional menu item for "View All Properties" */}
-                  <Menu.Item key="all">View All Properties</Menu.Item>
+                  <Menu.Item key="all">All Properties</Menu.Item>
                   {defaultOrder.map((order) => (
                     <Menu.Item key={order.key}>{order.label}</Menu.Item>
                   ))}
@@ -105,7 +100,7 @@ const Properties = () => {
                 {/* Changed "Default Order" to display the selected property type or "View All Properties" */}
                 {selectedOrderType
                   ? defaultOrder.find((order) => order.key === selectedOrderType).label
-                  : "View All Properties"}{" "}
+                  : "All Properties"}
                 <DownOutlined />
               </div>
             </Dropdown>
