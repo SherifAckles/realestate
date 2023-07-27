@@ -1,10 +1,11 @@
 import React from "react";
 import Head from "next/head";
+import { GlobalContextProvider } from "../components/context/GlobalContext";
 import "./global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.Fragment>
+    <GlobalContextProvider>
       <Head>
         <title>real estate 1</title>
         <meta
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-    </React.Fragment>
+      </GlobalContextProvider>
   );
 }
 
