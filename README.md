@@ -1,6 +1,6 @@
 
-  # real estate 1
-
+  # real estate 101
+This is a realestate app built with next js 13 and supabase.
   Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
 
   To preview and run the project on your device:
