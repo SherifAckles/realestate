@@ -9,9 +9,7 @@ const FeatureContainer = () => {
             Properties by Area
           </div>
           <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae; Proin sodales ultrices nulla blandit
-            volutpat.
+         <p className="leading-relaxed text-Gray-500 ">Discover Your Dream Home with Us. Whether you want to sell, rent, or buy a property, our dedicated team of experts will guide you every step of the way. Take advantage of our free marketing services to ensure your property stands out in the market</p> 
           </div>
         </div>
         <div className="self-stretch flex flex-row flex-wrap items-center justify-center gap-[86px] text-5xl text-gray-700">

@@ -8,11 +8,8 @@ import RentPropertiesContainer from "../components/rent-properties-container";
 import RentPropertiesForm from "../components/rent-properties-form";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
-import { useGlobalContext } from "../components/context/GlobalContext";
-
 const LandingPage = () => {
-  const { currentPage, selectedOrderType, totalProperties, propertyData } =
-    useGlobalContext();
+ 
 
   return (
     <>
