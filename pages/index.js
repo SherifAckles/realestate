@@ -3,7 +3,7 @@ import Head from "next/head";
 import Header from "../components/header";
 import HeroSection from "../components/hero";
 import AreaContainer from "../components/area-container";
-import FeatureContainer from "../components/feature-container";
+import OurServices from "../components/ourServices";
 import RentPropertiesContainer from "../components/rent-properties-container";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
@@ -20,7 +20,7 @@ const LandingPage = () => {
         <Header hamburger />
         <HeroSection />
         <AreaContainer />
-        <FeatureContainer />
+        <OurServices />
         <RentPropertiesContainer />
         <Contact />
         <Footer />
