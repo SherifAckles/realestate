@@ -10,32 +10,32 @@ const RentPropertiesContainer = () => {
             <span className="block h-1 bg-blue-500 bg-opacity-80 w-14 mt-2 mx-auto"></span>
 
           </div>
-          <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae; Proin sodales ultrices nulla blandit
-            volutpat.
-          </div>
+          <div className="self-stretch relative text-xl leading-relaxed  text-lightslategray">
+          <p className=" self-stretch text-Gray-500 ">Discover a curated selection of the newest and most attractive rental properties available.
+           From cozy apartments to spacious houses
+           </p>
+        </div>
         </div>
         <div className="self-stretch flex flex-row flex-wrap py-0 px-2.5 items-center justify-center gap-[32px]">
           <PropertyCard
             imgUrl="/unsplashrlwe8f8anoc@2x.png"
-           name='99 Allium place, Orlando, FL'
-           price='956,877'
+            name='99 Allium place, Orlando, FL'
+            price='956,877'
           />
           <PropertyCard
             imgUrl="/unsplashrlwe8f8anoc1@2x.png"
-           name='99 Allium place, Orlando, FL'
-           price='956,877'
+            name='99 Allium place, Orlando, FL'
+            price='956,877'
           />
           <PropertyCard
             imgUrl="/unsplashrlwe8f8anoc2@2x.png"
-           name='99 Allium place, Orlando, FL'
-           price='956,877'
+            name='99 Allium place, Orlando, FL'
+            price='956,877'
           />
           <PropertyCard
             imgUrl="/unsplashrlwe8f8anoc3@2x.png"
-           name='99 Allium place, Orlando, FL'
-           price='956,877'
+            name='99 Allium place, Orlando, FL'
+            price='956,877'
           />
         </div>
       </div>

@@ -15,8 +15,7 @@ const PropertyListHeader = () => {
     <div className="flex flex-row items-center justify-start">
       <div className="flex flex-row flex-wrap items-end justify-start gap-[16px]">
         <div className="flex flex-row items-start justify-start gap-[8px]">
-          <img className="w-6 h-6" alt="" src="/listbullets.svg" />
-          <img className="w-6 h-6" alt="" src="/squaresfour.svg" />
+          
         </div>
         <div className="leading-[24px]">Sort by:</div>
         <Dropdown
