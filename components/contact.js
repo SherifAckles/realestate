@@ -6,6 +6,8 @@ const Contact = () => {
         <div className="w-[688px] flex flex-col items-center justify-start gap-[24px] max-w-[95%px] lg:max-w-[95%] md:self-stretch md:w-auto">
           <div className="self-stretch relative leading-[48px] font-semibold">
             Contact us
+            <span className="block h-1 bg-blue-500 bg-opacity-80 w-14 mt-2 mx-auto"></span>
+
           </div>
           <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
             Vestibulum ante ipsum primis in faucibus orci luctus et ultrices

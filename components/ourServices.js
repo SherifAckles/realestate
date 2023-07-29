@@ -5,7 +5,11 @@ const OurServices = () => {
     <div className="self-stretch bg-primary-50 flex flex-col py-[70px] px-0 items-center justify-center text-center text-21xl text-primary-800 font-body-large-400">
       <div className="self-stretch flex flex-col pt-[75px] px-0 pb-0 box-border items-center justify-start gap-[54px] max-w-[95%px]">
         <div className="self-stretch flex flex-col py-0 px-[30px] box-border items-center justify-start gap-[24px] max-w-[95%px]">
-          <div className="self-stretch relative leading-[48px] font-semibold">Our Services</div>
+          <div className="self-stretch relative leading-[48px] font-semibold">Our Services
+          <span className="block h-1 bg-blue-500 bg-opacity-80 w-14 mt-2 mx-auto"></span>
+
+          </div>
+          
           <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
             <p className="leading-relaxed text-Gray-500 ">
               Discover Your Dream Home with Us. Whether you want to sell, rent, or buy a property, our dedicated team
