@@ -6,10 +6,10 @@ const FeatureContainer = () => {
       <div className="self-stretch flex flex-col pt-[75px] px-0 pb-0 box-border items-center justify-start gap-[54px] max-w-[95%px]">
         <div className="self-stretch flex flex-col py-0 px-[30px] box-border items-center justify-start gap-[24px] max-w-[95%px]">
           <div className="self-stretch relative leading-[48px] font-semibold">
-            Properties by Area
+           Our Services
           </div>
           <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
-         <p className="leading-relaxed text-Gray-500 ">Discover Your Dream Home with Us. Whether you want to sell, rent, or buy a property, our dedicated team of experts will guide you every step of the way. Take advantage of our free marketing services to ensure your property stands out in the market</p> 
+            <p className="leading-relaxed text-Gray-500 ">Discover Your Dream Home with Us. Whether you want to sell, rent, or buy a property, our dedicated team of experts will guide you every step of the way. Take advantage of our free marketing services to ensure your property stands out in the market</p>
           </div>
         </div>
         <div className="self-stretch flex flex-row flex-wrap items-center justify-center gap-[86px] text-5xl text-gray-700">
