@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useGlobalContext } from "../components/context/GlobalContext";
-import SignInOutButton from './SignInOutButton'
+
 const Header = () => {
   const router = useRouter();
   const { menuOpen, setMenuOpen, isLoggedIn, setIsLoggedIn } = useGlobalContext();
@@ -10,22 +10,15 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleSignIn = () => {
-    // Add your sign-in logic here
-    setIsLoggedIn(true);
-  };
-
-  const handleSignOut = () => {
-    // Add your sign-out logic here
-    setIsLoggedIn(false);
-    router.push("/"); // Redirect the user to the home page after signing out
-  };
+  
 
   const navigationLinks = [
     { text: 'Home', href: '/' },
     { text: 'Properties', href: '/properties' },
     { text: 'Contact', href: '/#contact' },
-    { text: 'Sign in', href: '/signIn.js' },
+    { text: 'Sign in', href: '/signing/signIn' },
+    { text: 'Sign up', href: '/signing/signUp' },
+
 
   ];
 
@@ -58,7 +51,7 @@ const Header = () => {
           ))}
         </div>
         {/* Conditional rendering for Sign In / Sign Out buttons */}
-        
+
         <button
           onClick={toggleMenu}
           className="hidden md:flex cursor-pointer border-none p-0 bg-transparent flex flex-row items-center justify-center whitespace-nowrap"
@@ -80,14 +73,7 @@ const Header = () => {
             </div>
           </Link>
         ))}
-        {isLoggedIn && (
-          <div
-            onClick={handleSignOut}
-            className="text-primary-900 p-4 cursor-pointer hover:scale-110 transition-transform text-xl hover:text-primary-500"
-          >
-            Sign Out
-          </div>
-        )}
+        
       </div>
     </header>
   );

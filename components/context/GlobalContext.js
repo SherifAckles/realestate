@@ -15,7 +15,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [selectedOrderType, setSelectedOrderType] = useState("");
   const [totalProperties, setTotalProperties] = useState([]);
   const [propertyData, setPropertyData] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
   const [menuOpen, setMenuOpen] = useState(false);
 
 
@@ -90,8 +90,7 @@ export const GlobalContextProvider = ({ children }) => {
         fetchTotalProperties,
         menuOpen,
         setMenuOpen,
-        isLoggedIn,
-        setIsLoggedIn,
+       
 
       }}
     >
