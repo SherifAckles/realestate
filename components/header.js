@@ -1,18 +1,32 @@
 import Link from 'next/link';
-import { useState } from 'react';
-
+import { useRouter } from 'next/router';
+import { useGlobalContext } from "../components/context/GlobalContext";
+import SignInOutButton from './SignInOutButton'
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const { menuOpen, setMenuOpen, isLoggedIn, setIsLoggedIn } = useGlobalContext();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  
+  const handleSignIn = () => {
+    // Add your sign-in logic here
+    setIsLoggedIn(true);
+  };
+
+  const handleSignOut = () => {
+    // Add your sign-out logic here
+    setIsLoggedIn(false);
+    router.push("/"); // Redirect the user to the home page after signing out
+  };
+
   const navigationLinks = [
     { text: 'Home', href: '/' },
     { text: 'Properties', href: '/properties' },
     { text: 'Contact', href: '/#contact' },
+    { text: 'Sign in', href: '/signIn.js' },
+
   ];
 
   return (
@@ -30,20 +44,24 @@ const Header = () => {
           </div>
         </Link>
         {/* navigation links */}
-        <div className="flex md:hidden gap-[8rem] mx-auto" >
+        <div className="flex md:hidden gap-[8rem] mx-auto">
           {/* Use the map function to generate the navigation links */}
-          {navigationLinks.map((link) => {
-            const{href,text}=link
-           return <Link key={link} href={href}>
-              <div className="text-primary-900 cursor-pointer hover:scale-110 transition-transform text-xl hover:text-primary-500">
-                {text}
-              </div>
-            </Link>
-          })}
+          {navigationLinks.map(({ text, href }) => (
+            <div
+              key={text}
+              className="text-primary-900 cursor-pointer hover:scale-110 transition-transform text-xl hover:text-primary-500"
+            >
+              <Link href={href}>
+                <span>{text}</span>
+              </Link>
+            </div>
+          ))}
         </div>
+        {/* Conditional rendering for Sign In / Sign Out buttons */}
+        
         <button
           onClick={toggleMenu}
-          className="hidden md:flex cursor-pointer border-none p-0 bg-transparent flex flex-row items-center justify-center"
+          className="hidden md:flex cursor-pointer border-none p-0 bg-transparent flex flex-row items-center justify-center whitespace-nowrap"
         >
           <img
             className="w-6 h-6 overflow-hidden flex"
@@ -55,13 +73,21 @@ const Header = () => {
       {/* Responsive Hamburger navigation links Menu */}
       <div className={` ${menuOpen ? 'block' : 'hidden'} absolute top-[98px] left-[20px] right-[20px] bg-white border rounded shadow`}>
         {/* Use the map function to generate the navigation links */}
-        {navigationLinks.map((link) => (
-          <Link key={link.href} href={link.href}>
+        {navigationLinks.map(({ text, href }) => (
+          <Link key={text} href={href}>
             <div className="text-primary-900 cursor-pointer p-4">
-              {link.text}
+              {text}
             </div>
           </Link>
         ))}
+        {isLoggedIn && (
+          <div
+            onClick={handleSignOut}
+            className="text-primary-900 p-4 cursor-pointer hover:scale-110 transition-transform text-xl hover:text-primary-500"
+          >
+            Sign Out
+          </div>
+        )}
       </div>
     </header>
   );

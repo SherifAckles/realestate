@@ -15,6 +15,9 @@ export const GlobalContextProvider = ({ children }) => {
   const [selectedOrderType, setSelectedOrderType] = useState("");
   const [totalProperties, setTotalProperties] = useState([]);
   const [propertyData, setPropertyData] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
   const defaultOrder = [
     {
@@ -85,6 +88,11 @@ export const GlobalContextProvider = ({ children }) => {
         selectedOrderLabel,
         fetchProperties,
         fetchTotalProperties,
+        menuOpen,
+        setMenuOpen,
+        isLoggedIn,
+        setIsLoggedIn,
+
       }}
     >
       {children}
