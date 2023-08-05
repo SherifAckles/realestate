@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useGlobalContext } from "../components/context/GlobalContext";
-import SignInOutButton from './SignInOutButton'
+import { useGlobalContext } from "../context/GlobalContext";
+
 const Header = () => {
   const router = useRouter();
   const { menuOpen, setMenuOpen, isLoggedIn, setIsLoggedIn } = useGlobalContext();
@@ -25,7 +25,7 @@ const Header = () => {
     { text: 'Home', href: '/' },
     { text: 'Properties', href: '/properties' },
     { text: 'Contact', href: '/#contact' },
-    { text: 'Sign in', href: '/signIn.js' },
+    { text: 'Sign in', href: '/signin' },
 
   ];
 

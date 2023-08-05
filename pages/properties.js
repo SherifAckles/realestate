@@ -5,7 +5,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import PropertyListHeader from "../components/PropertyListHeader";
 import PropertiesGridContainer from "../components/properties-grid-container";
-import { useGlobalContext } from "../components/context/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const Properties = () => {
   const {

@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { GlobalContextProvider } from "../components/context/GlobalContext";
+import { GlobalContextProvider } from "../context/GlobalContext";
 import "./global.css";
 
 function MyApp({ Component, pageProps }) {

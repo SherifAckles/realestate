@@ -2,7 +2,7 @@
 import React from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { useGlobalContext } from "./context/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const PropertyListHeader = () => {
   const { defaultOrder, selectedOrderType, handleMenuClick } = useGlobalContext();

@@ -6,7 +6,7 @@ const SignInOutButton = ({ isLoggedIn, onSignOut }) => {
       Sign Out
     </div>
   ) : (
-    <Link href="/signIn">
+    <Link href="/signin">
       <div className="cursor-pointer hover:scale-110 transition-transform text-xl hover:text-primary-500">
         Sign In
       </div>
